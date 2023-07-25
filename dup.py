@@ -11,7 +11,7 @@ root= tk.Tk()
 canvas1 = tk.Canvas(root, width = 800, height = 300)
 canvas1.pack()
  
-label1 = tk.Label(root, text='Log Analyzer')
+label1 = tk.Label(root, text='Analyzer')
 label2 = tk.Label(root, text='Import a file...')
 label1.config(font=('Arial', 20))
 label2.config(font=('Arial', 10))
