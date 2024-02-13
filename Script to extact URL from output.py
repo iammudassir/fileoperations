@@ -1,6 +1,6 @@
 import json
 
-def extract_urls_from_json(input_file, output_file):
+def extract_urls_from_json(input_file, output_file, to_find='vendorlink'):
     try:
         with open(input_file, 'r') as file:
             data = json.load(file)
@@ -8,8 +8,8 @@ def extract_urls_from_json(input_file, output_file):
         urls = []
 
         for item in data:
-            if 'vendorlink' in item and item['vendorlink']:
-                urls.append(item['vendorlink'].strip())
+            if link_key in item and item[to_find]:
+                urls.append(item[to_find].strip())
 
         with open(output_file, 'w') as out_file:
             for url in urls:
@@ -24,4 +24,5 @@ def extract_urls_from_json(input_file, output_file):
 if __name__ == "__main__":
     input_file = 'test.json'
     output_file = 'output_urls.txt'
-    extract_urls_from_json(input_file, output_file)
+    vendor_link_key = 'vendorlink'
+    extract_urls_from_json(input_file, output_file, vendor_link_key)
